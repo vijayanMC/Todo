@@ -18,15 +18,18 @@ public class Edit extends HttpServlet{
 	
 	 @Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 int taskid=Integer.parseInt(req.getParameter("taskid"));
+		 int id=Integer.parseInt(req.getParameter("id"));
+		 
 			
 			Dao dao=new Dao();
 			
 			try {
-				Task task = dao.findtaskById(taskid);
+				Task task = dao.findtaskById(id);
 				req.setAttribute("task", task);
+				
 				RequestDispatcher dispatcher=req.getRequestDispatcher("edittask.jsp");
 				dispatcher.include(req, resp);
+				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

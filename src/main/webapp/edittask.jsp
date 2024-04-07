@@ -11,8 +11,8 @@
        <%Task task=(Task)request.getAttribute("task");%>
        
        <form action="updatetask" method="post">
-       task id <input type="text" name="taskid" hidden=""value="<%= task.getTaskid() %>" ><br> 
-       task title <input type="text" name="tasktitle" value=" <%= task.getTasktitle() %> "> <br>
+       task id <input type="text" name="taskid" hidden=""value="<%= task.getTaskid() %>" readonly ><br> 
+       task title <input type="text" name="tasktitle" value=" <%= task.getTasktitle() %> " required> <br>
        task description <input type="text" name="taskdescription" value=" <%=task.getTaskdescription()%>"><br>
        Current task priority :<h4><%= task.getTaskpriority() %></h4>
        Task priority:<br>

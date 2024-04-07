@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 
      <style >
-     #k{
-        background-image:url("https://cdn.pixabay.com/photo/2020/06/20/16/20/orange-5321552_640.jpg" );
-        border:1px solid black;
+     body{
+        background-image:url("https://media.istockphoto.com/id/1418476287/photo/businessman-analyzing-companys-financial-balance-sheet-working-with-digital-augmented-reality.jpg?s=2048x2048&w=is&k=20&c=6TnFp1GpVfRd7ZLIl-GJAO0IAkrcBPT4xvcrvr8QcRc=" );
+        
         width:100%;
-        height:100vh;
-    
+        height:50vh;
+        background-attachment: fixed;
      }
      
      #kk1{
@@ -20,7 +20,7 @@
       height:170px;
       width:320px;
       text-align: center;
-       background-color: aqua;
+       
        margin:auto;
        margin-top:160px;
       
@@ -28,7 +28,7 @@
      </style>
 </head>
 <body>  
-        <div id="k">
+        
         <table id="kk1">
         <form action="userlogin" method="post">
         <tr>
@@ -51,7 +51,7 @@
         
         </form>	
         </table>   
-        </div> 
+        
 
 </body>
 </html>

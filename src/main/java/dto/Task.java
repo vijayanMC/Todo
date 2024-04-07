@@ -2,6 +2,13 @@ package dto;
 
 public class Task {
         
+	 @Override
+	public String toString() {
+		return "Task [taskid=" + taskid + ", tasktitle=" + tasktitle + ", taskdescription=" + taskdescription
+				+ ", taskpriority=" + taskpriority + ", taskduedate=" + taskduedate + ", taskstatus=" + taskstatus
+				+ ", userid=" + userid + "]";
+	}
+	 
 	 private int taskid;
 	 private String tasktitle;
 	 private String taskdescription;

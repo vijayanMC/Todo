@@ -99,7 +99,7 @@ public class Dao {
 		
 		
 	}
-	public static int deleteTaskid(int taskid) throws ClassNotFoundException, SQLException {
+	public  int deleteTaskid(int taskid) throws ClassNotFoundException, SQLException {
 		Connection con = getConnection();
 		PreparedStatement pst = con.prepareStatement("delete from task where taskid=?");
 		pst.setInt(1, taskid);
@@ -107,6 +107,36 @@ public class Dao {
 		return res;
 			
 	}
+	
+	public int getTaskId()throws ClassNotFoundException, SQLException {
+		Connection con = getConnection();
+		PreparedStatement pst = con.prepareStatement("select max(task)from task");
+		ResultSet rs = pst.executeQuery();
+		if(rs.next())
+		{
+			int id=rs.getInt(1);
+			return id+1;
+		}
+		else {
+			   return 1;
+		}
+	}
+	
+	
+	public int getUserId()throws ClassNotFoundException, SQLException {
+		Connection con = getConnection();
+		PreparedStatement pst = con.prepareStatement("select max(userid)from user");
+		ResultSet rs = pst.executeQuery();
+		if(rs.next())
+		{
+			int id=rs.getInt(1);
+			return id+1;
+		}
+		else {
+			   return 1;
+		}
+	}
+	
 	public  Task findtaskById(int taskid) throws ClassNotFoundException, SQLException {
 		Connection con = getConnection();
 		PreparedStatement pst = con.prepareStatement("select * from task where taskid=?");
@@ -117,11 +147,13 @@ public class Dao {
 		return task;
 			
 	}
+	
+	
 	public int UpdateTask(Task task) throws ClassNotFoundException, SQLException
 	{
 		Connection con = getConnection();
 		PreparedStatement pst = con.prepareStatement("update  task set tasktitle=? ,taskdescription=?,taskpriority=?,taskduedate=?,taskstatus=?,taskuserid=? where taskid=?");
-		
+	 	
 	       pst.setString(1, task.getTasktitle());
 	       pst.setString(2, task.getTaskdescription());
 	       pst.setString(3, task.getTaskpriority());

@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 
        <style>
+       
        #kk{
             border:1px solid black;
             height:30px;
@@ -37,8 +38,9 @@
        <%User user=(User)request.getSession().getAttribute("user");%>
        <%String username=user.getUsername(); %>
        
-       <h1 >Welcome to Home Page</h1><br>
-       <h2>Welcome <%= username %></h2>
+       <h1  >Welcome to Home Page</h1><br>
+       
+       <h2 >Welcome <%= username %></h2>
        <h4>email<%= user.getUseremail() %></h4>  
        
        <%String image= new String(Base64.getEncoder().encode(user.getUserimage())); %>
@@ -62,18 +64,20 @@
        <th>Edit</th>
        </tr>
        
+       <% int num=1; %>
        <% for(Task task:tasks) {%>
           <tr>
-          <td><%= task.getTaskid() %></td>
+          <td><%= num %></td>
           <td><%= task.getTasktitle() %></td>
           <td><%= task.getTaskdescription() %></td>
           <td><%= task.getTaskpriority() %></td>
           <td><%= task.getTaskduedate() %></td>
           <td><%= task.getTaskstatus() %></td>
           <td><a href="delete?taskid=<%= task.getTaskid()%>">Delete</a></td>
-          <td><a href="edit?taskid=<%= task.getTaskid() %>>">Edit</a></td>
+          <td><a href="edit?id=<%= task.getTaskid() %>>">Edit</a></td>
           
           </tr>
+          <%num +=1; %>
           <% } %>
        </table>
        
